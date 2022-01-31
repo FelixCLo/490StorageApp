@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "682080663440",
+    "firebase_url": "https://storage-system-12562-default-rtdb.firebaseio.com",
+    "project_id": "storage-system-12562",
+    "storage_bucket": "storage-system-12562.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682080663440:android:dbef612188da604ba06515",
+        "android_client_info": {
+          "package_name": "com.example.storagesystemapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682080663440-dq2ec9gvbqebcab38t3nmange1201tq2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVpTGwf8Iq1HBc3BF5P5GEIwZHtZbJSSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682080663440-dq2ec9gvbqebcab38t3nmange1201tq2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
