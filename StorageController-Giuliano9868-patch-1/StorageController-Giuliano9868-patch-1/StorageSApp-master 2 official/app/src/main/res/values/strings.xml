@@ -1,3 +1,51 @@
 <resources>
     <string name="app_name">StorageSystemApp</string>
+
+
+        <string-array name="Homepage" >
+            <item>Choose the Compartment:</item>
+            <item>Compartment 1</item>
+            <item>Compartment 2</item>
+            <item>Compartment 3</item>
+            <item>Compartment 4</item>
+
+    </string-array>
+
+        <string-array name="Compartment1" >
+            <item>Choose the Page:</item>
+            <item>Home Page</item>
+            <item>Compartment 2</item>
+            <item>Compartment 3</item>
+            <item>Compartment 4</item>
+
+        </string-array>
+
+        <string-array name="Compartment2" >
+            <item>Choose the Page:</item>
+            <item>Home Page</item>
+            <item>Compartment 1</item>
+            <item>Compartment 3</item>
+            <item>Compartment 4</item>
+
+        </string-array>
+
+        <string-array name="Compartment3" >
+            <item>Choose the Page:</item>
+            <item>Home Page</item>
+            <item>Compartment 1</item>
+            <item>Compartment 2</item>
+            <item>Compartment 4</item>
+
+        </string-array>
+
+        <string-array name="Compartment4" >
+            <item>Choose the Page:</item>
+            <item>Home Page</item>
+            <item>Compartment 1</item>
+            <item>Compartment 2</item>
+            <item>Compartment 3</item>
+
+        </string-array>
+
+
 </resources>

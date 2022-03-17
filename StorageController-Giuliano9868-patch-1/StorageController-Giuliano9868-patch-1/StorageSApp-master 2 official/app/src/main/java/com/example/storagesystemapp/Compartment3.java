@@ -10,8 +10,11 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,12 +28,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Base64;
 
-public class Compartment3 extends AppCompatActivity implements View.OnClickListener {
+public class Compartment3 extends AppCompatActivity {
 
     private ImageView img3;
-    private Button btnHo;
-    private Button btnCom1, btnCom2, btnCom4;
-
 
     private FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
     private DatabaseReference reference=firebaseDatabase.getReference();
@@ -49,17 +49,36 @@ public class Compartment3 extends AppCompatActivity implements View.OnClickListe
 
         img3=findViewById(R.id.img3);
 
-        btnHo = (Button)findViewById(R.id.btnHo);
-        btnHo.setOnClickListener(this);
 
-        btnCom2 = (Button)findViewById(R.id.btnCom2);
-        btnCom2.setOnClickListener(this);
+        Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Compartment3.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Compartment3));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(myAdapter);
 
-        btnCom1 = (Button)findViewById(R.id.btnCom1);
-        btnCom1.setOnClickListener(this);
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i ==1){
+                    startActivity (new Intent(Compartment3.this, HomePage.class));
+                }else
+                if(i ==2){
+                    startActivity (new Intent(Compartment3.this, Compartment1.class));
+                } else
+                if(i ==3){
+                    startActivity (new Intent(Compartment3.this, Compartment2.class));
+                } else
+                if(i ==4){
+                    startActivity (new Intent(Compartment3.this, Compartment4.class));
+                }
+            }
 
-        btnCom4 = (Button)findViewById(R.id.btnCom4);
-        btnCom4.setOnClickListener(this);
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
     }
 
@@ -98,28 +117,4 @@ public class Compartment3 extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-
-
-
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnHo:
-                startActivity(new Intent(this, HomePage.class));
-                break;
-            case R.id.btnCom2:
-                startActivity(new Intent(this, Compartment2.class));
-                break;
-            case R.id.btnCom1:
-                startActivity(new Intent(this, Compartment1.class));
-                break;
-            case R.id.btnCom4:
-                startActivity(new Intent(this, Compartment4.class));
-                break;
-
-
-        }
-
-    }
 }

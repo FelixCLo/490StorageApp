@@ -10,8 +10,11 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,11 +31,9 @@ import java.net.URLDecoder;
 import java.util.Base64;
 
 
-public class Compartment2 extends AppCompatActivity implements View.OnClickListener {
-   // private TextView Compartment2;
+public class Compartment2 extends AppCompatActivity {
     private ImageView img;
-    private Button btnHome;
-    private Button btnComp1, btnc3, btnc4;
+
             ;
     private FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
     private DatabaseReference reference=firebaseDatabase.getReference();
@@ -46,20 +47,38 @@ public class Compartment2 extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compartment2);
 
-       // Compartment2=findViewById(R.id.text1);
         img=findViewById(R.id.img);
 
-        btnHome = (Button)findViewById(R.id.btnHome);
-        btnHome.setOnClickListener(this);
 
-        btnComp1 = (Button)findViewById(R.id.btnComp1);
-        btnComp1.setOnClickListener(this);
+        Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Compartment2.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Compartment2));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(myAdapter);
 
-        btnc3 = (Button)findViewById(R.id.btnc3);
-        btnc3.setOnClickListener(this);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i ==1){
+                    startActivity (new Intent(Compartment2.this, HomePage.class));
+                }else
+                if(i ==2){
+                    startActivity (new Intent(Compartment2.this, Compartment1.class));
+                } else
+                if(i ==3){
+                    startActivity (new Intent(Compartment2.this, Compartment3.class));
+                } else
+                if(i ==4){
+                    startActivity (new Intent(Compartment2.this, Compartment4.class));
+                }
+            }
 
-        btnc4 = (Button)findViewById(R.id.btnc4);
-        btnc4.setOnClickListener(this);
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
 
     }
@@ -88,8 +107,7 @@ public class Compartment2 extends AppCompatActivity implements View.OnClickListe
                     Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
                     img.setImageBitmap(bitmap);
 
-                    //Compartment2.setText(message);
-                    // Picasso.get().load(imageBytes.toString()).into(img);
+
 
             }
 
@@ -100,24 +118,4 @@ public class Compartment2 extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-
-    @Override
-    public void onClick(View view) {
-
-        switch (view.getId()) {
-            case R.id.btnHome:
-                startActivity(new Intent(this, HomePage.class));
-                break;
-            case R.id.btnComp1:
-                startActivity(new Intent(this, Compartment1.class));
-                break;
-            case R.id.btnc3:
-                startActivity(new Intent(this, Compartment3.class));
-                break;
-            case R.id.btnc4:
-                startActivity(new Intent(this, Compartment4.class));
-                break;
-
-        }
-    }
 }
